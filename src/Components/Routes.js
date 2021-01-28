@@ -8,7 +8,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route exact path="/" component={Main} />
-            <Route path="/tagPost/:hashtag" component={TagPost} />
+            <Route path="/tagPost/:hashTag" component={TagPost} />
             <Route path="/userPost/:userName" component={UserPost} />
             <Redirect from="*" to="/" />
         </Switch>

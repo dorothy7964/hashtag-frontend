@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "react-apollo-hooks";
-import { TREND_GAP, TREND_RATE } from "./MainQueries";
-import MainPresenter from "./MainPresenter";
+import { TREND_GAP, TREND_RATE } from "./TopQueries";
+import TopPresenter from "./TopPresenter";
 
-const MainContainer = () => {
+const TopContainer = () => {
     const { data, loading, refetch } = useQuery(TREND_GAP);
     const { data: dataRate, loading: loadingRate } = useQuery(TREND_RATE);
-    const [sortDate, setSortDate] = useState(1);     // 1일간, 7일간, 한 달간, 두 달간
+    const [sortDate, setSortDate] = useState(1);            // 1일간, 7일간, 한 달간, 두 달간
     const [sortAction, setSortAction] = useState("dayGap"); // 증가량(gap), 증가율(rate)
     
+
     // 날짜 정렬 변경
     const handleSortDate = (date) => {
         setSortDate(date);
@@ -24,7 +25,7 @@ const MainContainer = () => {
     }, []);
     
     return (
-        <MainPresenter 
+        <TopPresenter 
             data={data}
             loading={loading}
             dataRate={dataRate}
@@ -37,6 +38,6 @@ const MainContainer = () => {
     );
 };
 
-export default MainContainer;
+export default TopContainer;
 
     

@@ -1,20 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import SelectSort from "../../Components/SelectSort";
-import TableData from "../../Components/Table/TableData";
+import SelectSort from "../SelectSort";
+import TableData from "../HashtagTable/TableData";
 
 const Wrapper = styled.div`
 `;
 
-const MainPresenter = ({ 
+const TopPresenter = ({ 
     data,
     loading,
     dataRate,
     loadingRate,
+    dataRecent,
+    loadingRecent,
     sortDate,
     sortAction,
+    togglePage,
     handleSortDate,
     handleSortAction,
+    handleTogglePage
 }) => {
     if (loading === true || loadingRate === true){
         return (
@@ -24,7 +28,7 @@ const MainPresenter = ({
         );
     } else if (
         !loading && data && data.gap &&
-        !loadingRate && dataRate && dataRate.rate 
+        !loadingRate && dataRate && dataRate.rate
     ){
         return (
             <Wrapper>
@@ -35,6 +39,7 @@ const MainPresenter = ({
                 <TableData 
                     data={data}
                     dataRate={dataRate}
+                    fileName="TopHashTag"
                     sortDate={sortDate}
                     sortAction={sortAction}
                 />
@@ -43,4 +48,4 @@ const MainPresenter = ({
     }
 };
 
-export default MainPresenter;
+export default TopPresenter;
