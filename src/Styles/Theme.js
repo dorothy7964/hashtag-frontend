@@ -1,4 +1,4 @@
-const BORDER_COLOR = "#e6e6e6"
+const BORDER_COLOR = "#999"
 const BOX_BORDER = `1px solid ${BORDER_COLOR}`;
 const BORDER_RADIUS = "4px";
 

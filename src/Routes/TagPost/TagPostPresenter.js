@@ -3,29 +3,45 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import RelatedHashTag from "../../Components/RelatedHashTag"
 import TagPostSortType from "../../Components/TagPostTable/TagPostSortType"
+import { Prev } from "../../Components/Icons";
+import slack_Icon from "../../Icons/slack.png";
 
-const CloseBox = styled.div`
-`;
 
 const LinkButton = styled(Link)`
     display: flex;
     flex-direction:row-reverse;
     padding: 15px;
-    margin: 0 20px;
-    font-size: 30pt;
+    margin: 10px 50px;
+    font-size: 150pt;
     color: black;
 `;
 
 const Wrapper = styled.div`
+    min-height: 80vh;
+    align-items: center;
+    margin: 0 auto;
+    width: ${props => props.theme.tableWith};
+`;
+
+const HeaderContainer = styled.div`
+    display: flex;
+    flex-direction: row;
 `;
 
 const Header = styled.div`
+    margin: 10px;
+    img{
+        width: 50px;
+    }
 `;
 
 const Title = styled.div`
+    font-size: 38px;
+    margin-bottom: 10px;
 `;
 
 const PostNum = styled.div`
+    font-size: 17px;
 `;
 
 const ButtonContainer = styled.div`
@@ -40,9 +56,7 @@ const ButtonBox = styled.div`
 `;
 
 const TableContainer = styled.div`
-    margin: 0 auto;
     margin-bottom:50px;
-    width: ${props => props.theme.tableWith};
 `;
 
 const TagPostPresenter = ({ 
@@ -67,16 +81,19 @@ const TagPostPresenter = ({
         
        return (
             <React.Fragment>
-                <CloseBox>
                     <LinkButton to={`/`}>
-                        X
+                        <Prev />
                     </LinkButton>
-                </CloseBox>
                 <Wrapper>
-                    <Header>
-                        <Title>{info.hashtag}</Title>
-                        <PostNum>{`게시물 ${info.post_cnt}`}</PostNum>
-                    </Header>
+                    <HeaderContainer>
+                        <Header>
+                            <img alt="slack_Icon" src={slack_Icon} />
+                        </Header>
+                        <Header>
+                            <Title>{info.hashtag}</Title>
+                            <PostNum>{`게시물 ${info.post_cnt}`}</PostNum>
+                        </Header>
+                    </HeaderContainer>
                     <RelatedHashTag 
                         data={data.selectHashTag}
                     />

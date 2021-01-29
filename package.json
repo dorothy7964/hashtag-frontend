@@ -34,7 +34,9 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-slick": "^0.28.0",
     "react-toastify": "^7.0.1",
+    "start": "^5.1.0",
     "styled-components": "4.3.2",
     "styled-reset": "^4.3.4"
   }

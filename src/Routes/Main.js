@@ -7,15 +7,16 @@ import RecentHashTag from "../Components/RecentHashTag";
 const Wrapper = styled.div`
     min-height: 80vh;
     align-items: center;
+    margin: 0 auto;
+    width: ${props => props.theme.tableWith};
 `;
 
 const ButtonBox = styled.div`
 `;
 
 const TableContainer = styled.div`
-    margin: 0 auto;
+    margin-top: 20px;
     margin-bottom: 50px;
-    width: ${props => props.theme.tableWith};
 `;
 
 const Main = () => {
