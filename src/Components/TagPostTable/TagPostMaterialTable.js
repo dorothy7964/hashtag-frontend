@@ -39,90 +39,56 @@ const useStyles = makeStyles({
 });
 
 const TagPostMaterialTable = ({ 
-    fileName,
+    fileame,
     hashTag,
     mapData,
     sortAction,
 }) => {
     const classes = useStyles();
-    const listType = ["유저 ID", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
-    const listType_remain = ["유저 ID", "유지 시간/ 초", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
-    const galleryType = ["유지시간", "사진수", "영상수", "좋아요수", "댓글수"];
+    let listType = ["유저 ID", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
+    let listType_remain = ["유저 ID", "유지 시간/ 초", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
 
-    if (fileName === "ListType") {
-        
-        return (
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        {sortAction === "top_remain" 
-                            ?   <TableRow>
-                                    {listType_remain.map(title => (
-                                        <React.Fragment key={title}>
-                                            <StyledTableCell align="center">{title}</StyledTableCell>
-                                        </React.Fragment>
-                                    ))}
-                                </TableRow>
-                            :   <TableRow>
-                                    {listType.map(title => (
-                                        <React.Fragment key={title}>
-                                            <StyledTableCell align="center">{title}</StyledTableCell>
-                                        </React.Fragment>
-                                    ))}
-                                </TableRow>
-                        }
-                    </TableHead>
-                    <TableBody>
-                        {mapData.map(data => (
-                            <StyledTableRow key={data.hashtag}>
-                                <StyledTableCell  align="center" component="th" scope="row">
-                                    <Link to={`/userPost/${hashTag}/${sortAction}/${data.url}`}>
-                                        {data.id_data.username}
-                                    </Link>    
-                                </StyledTableCell>
-                                {sortAction === "top_remain" && 
-                                <StyledTableCell align="center">{`${data.remain} / sec`}</StyledTableCell>}
-                                <StyledTableCell align="center">{data.id_data.post_cnt}</StyledTableCell>
-                                <StyledTableCell align="center">{data.id_data.average_like_cnt}</StyledTableCell>
-                                <StyledTableCell align="center">{data.id_data.average_comment_cnt}</StyledTableCell>
-                                <StyledTableCell align="center">{`${data.id_data.average_post_hour} / h`}</StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        );
-    } else if (fileName === "GalleryType") {
-        return (
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <StyledTableRow>
-                            {galleryType.map(title => (
-                                <React.Fragment key={title}>
-                                    <StyledTableCell align="center">{title}</StyledTableCell>
-                                </React.Fragment>
-                            ))}
+    return (
+        <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                    {sortAction === "top_remain" 
+                        ?   <TableRow>
+                                {listType_remain.map(title => (
+                                    <React.Fragment key={title}>
+                                        <StyledTableCell align="center">{title}</StyledTableCell>
+                                    </React.Fragment>
+                                ))}
+                            </TableRow>
+                        :   <TableRow>
+                                {listType.map(title => (
+                                    <React.Fragment key={title}>
+                                        <StyledTableCell align="center">{title}</StyledTableCell>
+                                    </React.Fragment>
+                                ))}
+                            </TableRow>
+                    }
+                </TableHead>
+                <TableBody>
+                    {mapData.map(data => (
+                        <StyledTableRow key={data.hashtag}>
+                            <StyledTableCell  align="center" component="th" scope="row">
+                                <Link to={`/userPost/${hashTag}/${sortAction}/${data.url}`}>
+                                    {data.id_data.username}
+                                </Link>    
+                            </StyledTableCell>
+                            {sortAction === "top_remain" && 
+                            <StyledTableCell align="center">{`${data.remain} / sec`}</StyledTableCell>}
+                            <StyledTableCell align="center">{data.id_data.post_cnt}</StyledTableCell>
+                            <StyledTableCell align="center">{data.id_data.average_like_cnt}</StyledTableCell>
+                            <StyledTableCell align="center">{data.id_data.average_comment_cnt}</StyledTableCell>
+                            <StyledTableCell align="center">{`${data.id_data.average_post_hour} / h`}</StyledTableCell>
                         </StyledTableRow>
-                    </TableHead>
-                    <TableBody>
-                        {mapData.map(data => (
-                            <StyledTableRow key={data.hashtag}>
-                                <StyledTableCell  align="center" component="th" scope="row">
-                                    <Link to={`/tagPost/${data.hashtag}`}>
-                                        {`# ${data.hashtag}`}
-                                    </Link>   
-                                </StyledTableCell>
-                                <StyledTableCell align="center">{data.add_date}</StyledTableCell>
-                                <StyledTableCell align="center">{data.post_cnt}</StyledTableCell>
-                                <StyledTableCell align="center">{data.check_start_time}</StyledTableCell>
-                            </StyledTableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        );
-    }
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
 }
 
 export default TagPostMaterialTable;

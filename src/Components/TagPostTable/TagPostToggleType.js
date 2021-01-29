@@ -11,7 +11,6 @@ const TagPostToggleType = ({
     if (fileName === "ListType") {
         return (
             <TagPostMaterialTable
-                fileName={fileName}
                 hashTag={hashTag}
                 mapData={mapData}
                 sortAction={sortAction}
@@ -20,11 +19,10 @@ const TagPostToggleType = ({
     } else if (fileName === "GalleryType") {
         return (
             <TagPostGallery
-                fileName={fileName}
                 hashTag={hashTag}
                 mapData={mapData}
                 sortAction={sortAction}
-            />
+                />
         );
     }
 }

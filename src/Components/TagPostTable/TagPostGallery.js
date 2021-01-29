@@ -1,39 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SquarePost from "../SquarePost";
 
-const Wrapper = styled.div`
-`;
-
-const Container = styled.div`
-`;
-
-const LinkButton = styled(Link)`
-    display: flex;
-    flex-direction:row-reverse;
-    padding: 15px;
-    margin: 0 20px;
-    font-size: 30pt;
-    color: black;
+const Posts = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 293px);
+    grid-template-rows: 293px;
+    grid-auto-rows: 293px;
+    grid-gap: 28px;;
 `;
 
 const TagPostGallery = ({
     hashTag,
     mapData,
     sortAction,
-}) => {
-    
-    return (                                                                                                                  
-        
-        <Wrapper>
-            {mapData.map(data => (
-                <Container key={data.url}>
-                    {data.url}
-                </Container>
-            ))}
-        </Wrapper>
-    );
-};
+}) =>  (                                                                                                                  
+    <Posts>
+        {mapData.map(post => (
+            <SquarePost 
+                key={post.url}
+                hashTag={hashTag}
+                sortAction={sortAction}
+                url={post.url}
+                likeCount={post.like_cnt}
+                commentCount={post.comment_cnt}
+                file={"https://cdn.pixabay.com/photo/2021/01/02/23/55/dog-5883275__340.jpg"}
+                filesCount={post.pic_cnt}
+                moviesCount={post.mov_cnt}
+            />
+        ))}
+    </Posts>
+);
 
 export default TagPostGallery;
 

@@ -41,6 +41,7 @@ const ButtonBox = styled.div`
 
 const TableContainer = styled.div`
     margin: 0 auto;
+    margin-bottom:50px;
     width: ${props => props.theme.tableWith};
 `;
 
