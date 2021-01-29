@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import RelatedHashTag from "../../Components/RelatedHashTag"
-import TagPostTableData from "../../Components/HashtagTable/TagPostTableData"
+import TagPostSortType from "../../Components/TagPostTable/TagPostSortType"
 
 const CloseBox = styled.div`
 `;
@@ -37,6 +37,11 @@ const ButtonBox = styled.div`
     &:first-child {
         margin-right: 10px;
     }
+`;
+
+const TableContainer = styled.div`
+    margin: 0 auto;
+    width: ${props => props.theme.tableWith};
 `;
 
 const TagPostPresenter = ({ 
@@ -98,20 +103,22 @@ const TagPostPresenter = ({
                             </button>
                         </ButtonBox>
                     </ButtonContainer>
-                    {togglePage 
-                        ?   <TagPostTableData 
-                                fileName="ListType"
-                                hashTag={hashTag}
-                                data={data.selectHashTag}
-                                sortAction={sortAction}
-                            />
-                        :   <TagPostTableData 
-                                fileName="GalleryType"
-                                hashTag={hashTag}
-                                data={data.selectHashTag}
-                                sortAction={sortAction}
-                            />
-                    }
+                    <TableContainer>
+                        {togglePage 
+                            ?   <TagPostSortType 
+                                    fileName="ListType"
+                                    hashTag={hashTag}
+                                    data={data.selectHashTag}
+                                    sortAction={sortAction}
+                                />
+                            :   <TagPostSortType 
+                                    fileName="GalleryType"
+                                    hashTag={hashTag}
+                                    data={data.selectHashTag}
+                                    sortAction={sortAction}
+                                />
+                        }
+                    </TableContainer>
                 </Wrapper>
             </React.Fragment>
         );

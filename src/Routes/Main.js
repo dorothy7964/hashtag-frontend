@@ -9,6 +9,11 @@ const Wrapper = styled.div`
 const ButtonBox = styled.div`
 `;
 
+const TableContainer = styled.div`
+    margin: 0 auto;
+    width: ${props => props.theme.tableWith};
+`;
+
 const Main = () => {
     // true : 인기 해시태그 / false : 최신 해시태그
     const [togglePage, setTogglePage] = useState(true);     
@@ -27,10 +32,12 @@ const Main = () => {
                     최신 해시태그
                 </button>
             </ButtonBox>
-            {togglePage 
-                ?   <TopHashTag />
-                :   <RecentHashTag />
-            }
+            <TableContainer>
+                {togglePage 
+                    ?   <TopHashTag />
+                    :   <RecentHashTag />
+                }
+            </TableContainer>
         </Wrapper>
     );
 };

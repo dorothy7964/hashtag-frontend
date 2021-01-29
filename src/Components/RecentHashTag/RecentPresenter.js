@@ -1,5 +1,5 @@
 import React from "react";
-import TableDataStyle from "../HashtagTable/TableDataStyle";
+import MainMaterialTable from "../MainTable/MainMaterialTable";
 
 const TopPresenter = ({ 
     data,
@@ -15,7 +15,7 @@ const TopPresenter = ({
         const { trendList: { recent_list } } = data;
 
         return (
-            <TableDataStyle 
+            <MainMaterialTable 
                 mapData={recent_list}
                 fileName="RecentHashTag"
             />

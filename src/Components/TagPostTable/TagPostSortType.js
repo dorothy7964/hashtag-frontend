@@ -1,7 +1,7 @@
 import React from "react";
-import TagPostTableDataStyle from "./TagPostTableDataStyle";
+import TagPostToggleType from "./TagPostToggleType";
 
-const TagPostTableData = ({
+const TagPostSortType = ({
     fileName,
     hashTag,
     sortAction,
@@ -14,7 +14,7 @@ const TagPostTableData = ({
 }) => {
     if (sortAction === "lately_popular"){
         return (
-            <TagPostTableDataStyle
+            <TagPostToggleType
                 fileName={fileName}
                 hashTag={hashTag}
                 mapData={lately_popular}
@@ -23,7 +23,7 @@ const TagPostTableData = ({
         );
     } else if (sortAction === "top_remain") {
         return (
-            <TagPostTableDataStyle
+            <TagPostToggleType
                 fileName={fileName}
                 hashTag={hashTag}
                 mapData={top_remain}
@@ -32,7 +32,7 @@ const TagPostTableData = ({
         );
     } else if (sortAction === "top_like") {
         return (
-            <TagPostTableDataStyle
+            <TagPostToggleType
                 fileName={fileName}
                 hashTag={hashTag}
                 mapData={top_like}
@@ -41,7 +41,7 @@ const TagPostTableData = ({
         );
     } else if (sortAction === "top_comment") {
         return (
-            <TagPostTableDataStyle
+            <TagPostToggleType
                 fileName={fileName}
                 hashTag={hashTag}
                 mapData={top_comment}
@@ -51,4 +51,4 @@ const TagPostTableData = ({
     }
 };
 
-export default TagPostTableData;
+export default TagPostSortType;

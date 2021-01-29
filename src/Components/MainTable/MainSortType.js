@@ -1,34 +1,34 @@
 import React from "react";
-import TableDataStyle from "./TableDataStyle";
+import MainMaterialTable from "./MainMaterialTable";
 
-const TableData = ({ data, dataRate, fileName, sortDate, sortAction }) => {
+const MainSortType = ({ data, dataRate, fileName, sortDate, sortAction }) => {
     if (sortAction === "dayGap") {
         const { gap } = data;
 
         if (sortDate === 1 ) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={gap.day1_gap}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 7) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={gap.day7_gap}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 30) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={gap.day30_gap}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 60) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={gap.day60_gap}
                     fileName={fileName}
                 />
@@ -39,28 +39,28 @@ const TableData = ({ data, dataRate, fileName, sortDate, sortAction }) => {
 
         if (sortDate === 1 ) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={rate.day1_rate}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 7) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={rate.day7_rate}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 30) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={rate.day30_rate}
                     fileName={fileName}
                 />
             );
         } else if (sortDate === 60) {
             return (
-                <TableDataStyle 
+                <MainMaterialTable 
                     mapData={rate.day60_rate}
                     fileName={fileName}
                 />
@@ -69,4 +69,4 @@ const TableData = ({ data, dataRate, fileName, sortDate, sortAction }) => {
     }
 };
 
-export default TableData;
+export default MainSortType;

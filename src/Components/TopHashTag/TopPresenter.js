@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SelectSort from "../SelectSort";
-import TableData from "../HashtagTable/TableData";
+import MainSortType from "../MainTable/MainSortType";
 
 const Wrapper = styled.div`
 `;
@@ -36,7 +36,7 @@ const TopPresenter = ({
                     handleSortDate={handleSortDate}
                     handleSortAction={handleSortAction}
                 />
-                <TableData 
+                <MainSortType 
                     data={data}
                     dataRate={dataRate}
                     fileName="TopHashTag"

@@ -14,6 +14,7 @@ const Theme = {
     borderColor: `${BORDER_COLOR}`,
     boxBorder: `1px solid ${BORDER_COLOR}`,
     borderRadius: "4px",
+    tableWith: '70%',
     shadowBox: `background-color:white; 
                 -webkit-box-shadow: 20px 20px 8px -13px rgba(230,230,230,0.37);
                 -moz-box-shadow: 20px 20px 8px -13px rgba(230,230,230,0.37);
