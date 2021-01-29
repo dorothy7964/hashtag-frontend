@@ -16,6 +16,7 @@ const UserPostContainer = ({ match: { params: { hashTag, togglePage, url }} }) =
         <UserPostPresenter 
             data={data}
             loading={loading}
+            hashTag={hashTag}
             togglePage={togglePage}
             url={url}
         />

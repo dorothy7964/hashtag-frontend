@@ -1,7 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import RelatedHashTag from "../../Components/RelatedHashTag"
 import InfoTableData from "../../Components/HashtagTable/InfoTableData"
+
+const CloseBox = styled.div`
+`;
+
+const LinkButton = styled(Link)`
+    display: flex;
+    flex-direction:row-reverse;
+    padding: 15px;
+    margin: 0 20px;
+    font-size: 30pt;
+    color: black;
+`;
 
 const Wrapper = styled.div`
 `;
@@ -37,34 +50,41 @@ const TagPostPresenter = ({
         }} = data;
         
        return (
-        <Wrapper>
-            <Header>
-                <Title>{info.hashtag}</Title>
-                <PostNum>{`게시물 ${info.post_cnt}`}</PostNum>
-            </Header>
-            <RelatedHashTag 
-                data={data.selectHashTag}
-            />
-            <ButtonBox>
-                <button onClick={() => handleTogglePage("lately_popular")}>
-                    최신순
-                </button>
-                <button onClick={() => handleTogglePage("top_remain")}>
-                    유지순
-                </button>
-                <button onClick={() => handleTogglePage("top_like")}>
-                    좋아요순
-                </button>
-                <button onClick={() => handleTogglePage("top_comment")}>
-                    댓글순
-                </button>
-            </ButtonBox>
-            <InfoTableData
-                hashTag={hashTag}
-                data={data.selectHashTag}
-                togglePage={togglePage}
-            />
-        </Wrapper>
+            <React.Fragment>
+                <CloseBox>
+                    <LinkButton to={`/`}>
+                        X
+                    </LinkButton>
+                </CloseBox>
+                <Wrapper>
+                    <Header>
+                        <Title>{info.hashtag}</Title>
+                        <PostNum>{`게시물 ${info.post_cnt}`}</PostNum>
+                    </Header>
+                    <RelatedHashTag 
+                        data={data.selectHashTag}
+                    />
+                    <ButtonBox>
+                        <button onClick={() => handleTogglePage("lately_popular")}>
+                            최신순
+                        </button>
+                        <button onClick={() => handleTogglePage("top_remain")}>
+                            유지순
+                        </button>
+                        <button onClick={() => handleTogglePage("top_like")}>
+                            좋아요순
+                        </button>
+                        <button onClick={() => handleTogglePage("top_comment")}>
+                            댓글순
+                        </button>
+                    </ButtonBox>
+                    <InfoTableData
+                        hashTag={hashTag}
+                        data={data.selectHashTag}
+                        togglePage={togglePage}
+                    />
+                </Wrapper>
+            </React.Fragment>
         );
     }
 }
