@@ -20,13 +20,19 @@ const Text = styled.div`
 const LinkText =styled(Link)`
 `;
 
-const InfoTableDataStyle = ({ hashTag, mapData, togglePage }) => {
-    if (togglePage === "top_remain") {
+const TagPostTableDataStyle = ({ 
+    fileName,
+    hashTag, 
+    mapData, 
+    sortAction,
+}) => {
+    if (fileName === "ListType") {
         return (
             <Wrapper>
                 <Header>
                     <Text>아이디</Text>
-                    <Text>유지 시간</Text>
+                    {sortAction === "top_remain" &&
+                    <Text>유지시간</Text>}
                     <Text>누적 게시물</Text>
                     <Text>평균 좋아요 수</Text>
                     <Text>평균 댓글 수</Text>
@@ -34,10 +40,11 @@ const InfoTableDataStyle = ({ hashTag, mapData, togglePage }) => {
                 </Header>
                 {mapData.map(data => (
                     <Container key={data.url}>
-                        <LinkText to={`/userPost/${hashTag}/${togglePage}/${data.url}`}>
+                        <LinkText to={`/userPost/${hashTag}/${sortAction}/${data.url}`}>
                             <Text>{data.id_data.username}</Text>
                         </LinkText>
-                        <Text>{`${data.id_data.remain}/sec`}</Text>
+                        {sortAction === "top_remain" && 
+                        <Text>{`${data.remain}/sec`}</Text>}
                         <Text>{data.id_data.post_cnt}</Text>
                         <Text>{data.id_data.average_like_cnt}</Text>
                         <Text>{data.id_data.average_comment_cnt}</Text>
@@ -46,25 +53,28 @@ const InfoTableDataStyle = ({ hashTag, mapData, togglePage }) => {
                 ))}
             </Wrapper>
         );
-    } else {
+    } else if (fileName === "GalleryType") {
         return (
             <Wrapper>
                 <Header>
-                    <Text>아이디</Text>
-                    <Text>누적 게시물</Text>
-                    <Text>평균 좋아요 수</Text>
-                    <Text>평균 댓글 수</Text>
-                    <Text>평균 포스팅 시간</Text>
+                    {sortAction === "top_remain" &&
+                    <Text>유지시간</Text>}
+                    <Text>사진수</Text>
+                    <Text>영상수</Text>
+                    <Text>좋아요수</Text>
+                    <Text>댓글수</Text>
                 </Header>
                 {mapData.map(data => (
                     <Container key={data.url}>
-                        <LinkText to={`/userPost/${hashTag}/${togglePage}/${data.url}`}>
+                        <LinkText to={`/userPost/${hashTag}/${sortAction}/${data.url}`}>
                             <Text>{data.id_data.username}</Text>
                         </LinkText>
-                        <Text>{data.id_data.post_cnt}</Text>
-                        <Text>{data.id_data.average_like_cnt}</Text>
-                        <Text>{data.id_data.average_comment_cnt}</Text>
-                        <Text>{`${data.id_data.average_post_hour}/h`}</Text>
+                        {sortAction === "top_remain" && 
+                        <Text>{`${data.remain}/sec`}</Text>}
+                        <Text>{data.pic_cnt}</Text>
+                        <Text>{data.mov_cnt}</Text>
+                        <Text>{data.like_cnt}</Text>
+                        <Text>{`${data.comment_cnt}/h`}</Text>
                     </Container>
                 ))}
             </Wrapper>
@@ -73,4 +83,4 @@ const InfoTableDataStyle = ({ hashTag, mapData, togglePage }) => {
     }
 }
 
-export default InfoTableDataStyle;
+export default TagPostTableDataStyle;

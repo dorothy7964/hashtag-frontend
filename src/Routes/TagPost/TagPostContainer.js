@@ -8,14 +8,21 @@ const TagPostContainer = ({ match: { params: { hashTag } }}) => {
         variables: { hashTag }
     });
 
+    // // true : 리스트형 / false : 갤러리형
+    const [togglePage, setTogglePage] = useState(true); 
+
     // 최근 인기 게시물 - lately_popular
     // 인기게시물에서 가장 오래 유지한 게시물- top_remain
     // 좋아요를 많이 받은 게시물 -top_like
     // 가장 댓글이 많이 달린 게시물 - top_comment
-    const [togglePage, setTogglePage] = useState("lately_popular");     
+    const [sortAction, setSortAction] = useState("lately_popular");     
 
-    const handleTogglePage = (text) => {
-        setTogglePage(text)
+    const handleTogglePage = (bool) => {
+        setTogglePage(bool)
+    };
+
+    const handleSortAction = (text) => {
+        setSortAction(text)
     };
 
 
@@ -29,7 +36,9 @@ const TagPostContainer = ({ match: { params: { hashTag } }}) => {
             loading={loading}
             hashTag={hashTag}
             togglePage={togglePage}
+            sortAction={sortAction}
             handleTogglePage={handleTogglePage}
+            handleSortAction={handleSortAction}
         />
     );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import RelatedHashTag from "../../Components/RelatedHashTag"
-import InfoTableData from "../../Components/HashtagTable/InfoTableData"
+import TagPostTableData from "../../Components/HashtagTable/TagPostTableData"
 
 const CloseBox = styled.div`
 `;
@@ -28,7 +28,15 @@ const Title = styled.div`
 const PostNum = styled.div`
 `;
 
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
 const ButtonBox = styled.div`
+    &:first-child {
+        margin-right: 10px;
+    }
 `;
 
 const TagPostPresenter = ({ 
@@ -36,7 +44,9 @@ const TagPostPresenter = ({
     loading,
     hashTag,
     togglePage, 
+    sortAction, 
     handleTogglePage,
+    handleSortAction,
  }) => {
     if (loading === true){
         return (
@@ -64,25 +74,44 @@ const TagPostPresenter = ({
                     <RelatedHashTag 
                         data={data.selectHashTag}
                     />
-                    <ButtonBox>
-                        <button onClick={() => handleTogglePage("lately_popular")}>
-                            최신순
-                        </button>
-                        <button onClick={() => handleTogglePage("top_remain")}>
-                            유지순
-                        </button>
-                        <button onClick={() => handleTogglePage("top_like")}>
-                            좋아요순
-                        </button>
-                        <button onClick={() => handleTogglePage("top_comment")}>
-                            댓글순
-                        </button>
-                    </ButtonBox>
-                    <InfoTableData
-                        hashTag={hashTag}
-                        data={data.selectHashTag}
-                        togglePage={togglePage}
-                    />
+                    <ButtonContainer>
+                        <ButtonBox>
+                            <button onClick={() => handleSortAction("lately_popular")}>
+                                최신순
+                            </button>
+                            <button onClick={() => handleSortAction("top_remain")}>
+                                유지순
+                            </button>
+                            <button onClick={() => handleSortAction("top_like")}>
+                                좋아요순
+                            </button>
+                            <button onClick={() => handleSortAction("top_comment")}>
+                                댓글순
+                            </button>
+                        </ButtonBox>
+                        <ButtonBox>
+                            <button onClick={() => handleTogglePage(true)}>
+                                리스트형
+                            </button>
+                            <button onClick={() => handleTogglePage(false)}>
+                                갤러리형
+                            </button>
+                        </ButtonBox>
+                    </ButtonContainer>
+                    {togglePage 
+                        ?   <TagPostTableData 
+                                fileName="ListType"
+                                hashTag={hashTag}
+                                data={data.selectHashTag}
+                                sortAction={sortAction}
+                            />
+                        :   <TagPostTableData 
+                                fileName="GalleryType"
+                                hashTag={hashTag}
+                                data={data.selectHashTag}
+                                sortAction={sortAction}
+                            />
+                    }
                 </Wrapper>
             </React.Fragment>
         );
