@@ -63,7 +63,7 @@ const TableDataStyle = ({ mapData, fileName }) => {
                 ))}
             </Wrapper>
         );
-    }
+    } 
 }
 
 export default TableDataStyle;

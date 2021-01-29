@@ -9,7 +9,7 @@ const Routes = () => {
         <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/tagPost/:hashTag" component={TagPost} />
-            <Route path="/userPost/:userName" component={UserPost} />
+            <Route path="/userPost/:hashTag/:togglePage/:url" component={UserPost} />
             <Redirect from="*" to="/" />
         </Switch>
     );

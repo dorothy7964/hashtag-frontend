@@ -6,6 +6,9 @@ import RecentHashTag from "../Components/RecentHashTag";
 const Wrapper = styled.div`
 `;
 
+const ButtonBox = styled.div`
+`;
+
 const Main = () => {
     // true : 인기 해시태그 / false : 최신 해시태그
     const [togglePage, setTogglePage] = useState(true);     
@@ -16,12 +19,14 @@ const Main = () => {
 
     return (
         <Wrapper>
-            <button onClick={() => handleTogglePage(true)}>
-                인기 해시태그
-            </button>
-            <button onClick={() => handleTogglePage(false)}>
-                최신 해시태그
-            </button>
+            <ButtonBox>
+                <button onClick={() => handleTogglePage(true)}>
+                    인기 해시태그
+                </button>
+                <button onClick={() => handleTogglePage(false)}>
+                    최신 해시태그
+                </button>
+            </ButtonBox>
             {togglePage 
                 ?   <TopHashTag />
                 :   <RecentHashTag />
