@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
+import moment from "moment";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,6 +10,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+
+// styled-components
+const Timestamp = styled.span`
+`;
 
 // Customized Style
 const StyledTableCell = withStyles((theme) => ({
@@ -95,7 +101,9 @@ const MainMaterialTable = ({ mapData, fileName }) => {
                                         {`# ${data.hashtag}`}
                                     </Link>   
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{data.add_date}</StyledTableCell>
+                                <StyledTableCell align="center">
+                                    <Timestamp>{ moment(`${data.add_date}`).format("YYYY.MM.DD HH:MM") }</Timestamp>
+                                </StyledTableCell>
                                 <StyledTableCell align="center">{data.post_cnt}</StyledTableCell>
                                 <StyledTableCell align="center">{data.check_start_time}</StyledTableCell>
                             </StyledTableRow>

@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Prev } from "../../Components/Icons";
+import TagPostButton from "../../Components/TagPostButton"
 import RelatedHashTag from "../../Components/RelatedHashTag"
 import TagPostSortType from "../../Components/TagPostTable/TagPostSortType"
-import { Prev } from "../../Components/Icons";
 import slack_Icon from "../../Icons/slack.png";
 
 
@@ -99,26 +100,10 @@ const TagPostPresenter = ({
                     />
                     <ButtonContainer>
                         <ButtonBox>
-                            <button onClick={() => handleSortAction("lately_popular")}>
-                                최신순
-                            </button>
-                            <button onClick={() => handleSortAction("top_remain")}>
-                                유지순
-                            </button>
-                            <button onClick={() => handleSortAction("top_like")}>
-                                좋아요순
-                            </button>
-                            <button onClick={() => handleSortAction("top_comment")}>
-                                댓글순
-                            </button>
-                        </ButtonBox>
-                        <ButtonBox>
-                            <button onClick={() => handleTogglePage(true)}>
-                                리스트형
-                            </button>
-                            <button onClick={() => handleTogglePage(false)}>
-                                갤러리형
-                            </button>
+                            <TagPostButton 
+                                handleSortAction={handleSortAction}
+                                handleTogglePage={handleTogglePage}
+                            />
                         </ButtonBox>
                     </ButtonContainer>
                     <TableContainer>

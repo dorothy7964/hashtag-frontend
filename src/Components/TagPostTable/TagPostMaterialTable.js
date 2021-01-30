@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import TimeIapse from "../TimeIapse";
 
 // Customized Style
 const StyledTableCell = withStyles((theme) => ({
@@ -78,7 +79,9 @@ const TagPostMaterialTable = ({
                                 </Link>    
                             </StyledTableCell>
                             {sortAction === "top_remain" && 
-                            <StyledTableCell align="center">{`${data.remain} / sec`}</StyledTableCell>}
+                            <StyledTableCell align="center">
+                                <TimeIapse createAt={data.remain} />
+                            </StyledTableCell>}
                             <StyledTableCell align="center">{data.id_data.post_cnt}</StyledTableCell>
                             <StyledTableCell align="center">{data.id_data.average_like_cnt}</StyledTableCell>
                             <StyledTableCell align="center">{data.id_data.average_comment_cnt}</StyledTableCell>
