@@ -1,5 +1,4 @@
-# 올 때 메로나
-소액 대행 서비스 프로젝트 입니다. <br/><br/>
+# 해시태그
 [backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/>
 [노션 바로가기](https://www.notion.so/wam6577/30e2e341ff61447ea5863cb6c2175670 "app Github 바로가기")
 
