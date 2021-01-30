@@ -1,8 +1,6 @@
 # 해시태그
-[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/>
-[노션 바로가기](https://www.notion.so/wam6577/30e2e341ff61447ea5863cb6c2175670 "app Github 바로가기")
 
-<br/><br/>
+[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/>
 
 # Install
 
@@ -502,3 +500,622 @@ ReactDOM.render(
 ```
 
 <br/><br/>
+
+# Material-ui Install
+
+## ----- Table Materlai -----
+
+## Basic table
+
+[material 사이트 바로가기](https://material-ui.com/components/tables/#basic-table "material 사이트 바로가기") <br/>
+
+### Install
+
+<!-- Install Code -->
+
+``` js
+$ yarn add @material-ui/core
+$ yarn add @material-ui/icons
+```
+
+### Example
+
+<!-- Example Code -->
+
+``` js
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
+
+export default function BasicTable() {
+  const classes = useStyles();
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align="right">Calories</TableCell>
+            <TableCell align="right">Fat&nbsp;(g)</TableCell>
+            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.name}>
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell align="right">{row.carbs}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+```
+
+<br/>
+
+## Basic table_Customized tables
+
+[material 사이트 바로가기](https://material-ui.com/components/tables/#customized-tables "material 사이트 바로가기") <br/>
+
+### Example
+
+<!-- Example Code -->
+
+``` js
+import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700,
+  },
+});
+
+export default function CustomizedTables() {
+  const classes = useStyles();
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
+            <StyledTableCell align="right">Calories</StyledTableCell>
+            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell component="th" scope="row">
+                {row.name}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.calories}</StyledTableCell>
+              <StyledTableCell align="right">{row.fat}</StyledTableCell>
+              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+```
+
+<br/>
+
+## ----- Button Materlai -----
+
+## Centered (Button)
+
+[material 사이트 바로가기](https://material-ui.com/components/tabs/#centered "material 사이트 바로가기") <br/>
+
+### Install
+
+<!-- Install Code -->
+``` js
+$ yarn add @material-ui/lab
+```
+
+### Example
+
+<!-- Example Code -->
+
+``` js
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+});
+
+export default function CenteredTabs() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Paper className={classes.root}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        centered
+      >
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
+      </Tabs>
+    </Paper>
+  );
+}
+
+```
+
+<br/>
+
+## Exclusive selection (Button)
+
+[material 사이트 바로가기](https://material-ui.com/components/toggle-button/#customized-toggle-button "material 사이트 바로가기") <br/>
+
+### Install
+
+
+<!-- Install Code -->
+``` js
+$ yarn add @material-ui/lab
+```
+
+### Example
+
+<!-- Example Code -->
+``` js
+import React from 'react';
+import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
+import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
+import FormatAlignRightIcon from '@material-ui/icons/FormatAlignRight';
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+
+export default function ToggleButtons() {
+  const [alignment, setAlignment] = React.useState('left');
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
+  return (
+    <ToggleButtonGroup
+      value={alignment}
+      exclusive
+      onChange={handleAlignment}
+      aria-label="text alignment"
+    >
+      <ToggleButton value="left" aria-label="left aligned">
+        <FormatAlignLeftIcon />
+      </ToggleButton>
+      <ToggleButton value="center" aria-label="centered">
+        <FormatAlignCenterIcon />
+      </ToggleButton>
+      <ToggleButton value="right" aria-label="right aligned">
+        <FormatAlignRightIcon />
+      </ToggleButton>
+      <ToggleButton value="justify" aria-label="justified" disabled>
+        <FormatAlignJustifyIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+}
+```
+<br/>
+
+## Customized toggle button
+
+[material 사이트 바로가기](https://material-ui.com/components/toggle-button/#customized-toggle-button "material 사이트 바로가기") <br/>
+
+### Install
+
+<!-- Install Code -->
+``` js
+$ yarn add @material-ui/lab
+```
+
+### Example
+
+<!-- Example Code -->
+``` js
+import React from 'react';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
+import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
+import FormatAlignRightIcon from '@material-ui/icons/FormatAlignRight';
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
+import FormatBoldIcon from '@material-ui/icons/FormatBold';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+import FormatUnderlinedIcon from '@material-ui/icons/FormatUnderlined';
+import FormatColorFillIcon from '@material-ui/icons/FormatColorFill';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    display: 'flex',
+    border: `1px solid ${theme.palette.divider}`,
+    flexWrap: 'wrap',
+  },
+  divider: {
+    margin: theme.spacing(1, 0.5),
+  },
+}));
+
+const StyledToggleButtonGroup = withStyles((theme) => ({
+  grouped: {
+    margin: theme.spacing(0.5),
+    border: 'none',
+    '&:not(:first-child)': {
+      borderRadius: theme.shape.borderRadius,
+    },
+    '&:first-child': {
+      borderRadius: theme.shape.borderRadius,
+    },
+  },
+}))(ToggleButtonGroup);
+
+export default function CustomizedDividers() {
+  const [alignment, setAlignment] = React.useState('left');
+  const [formats, setFormats] = React.useState(() => ['italic']);
+
+  const handleFormat = (event, newFormats) => {
+    setFormats(newFormats);
+  };
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
+  const classes = useStyles();
+
+  return (
+    <div>
+      <Paper elevation={0} className={classes.paper}>
+        <StyledToggleButtonGroup
+          size="small"
+          value={alignment}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="text alignment"
+        >
+          <ToggleButton value="left" aria-label="left aligned">
+            <FormatAlignLeftIcon />
+          </ToggleButton>
+          <ToggleButton value="center" aria-label="centered">
+            <FormatAlignCenterIcon />
+          </ToggleButton>
+          <ToggleButton value="right" aria-label="right aligned">
+            <FormatAlignRightIcon />
+          </ToggleButton>
+          <ToggleButton value="justify" aria-label="justified" disabled>
+            <FormatAlignJustifyIcon />
+          </ToggleButton>
+        </StyledToggleButtonGroup>
+        <Divider flexItem orientation="vertical" className={classes.divider} />
+        <StyledToggleButtonGroup
+          size="small"
+          value={formats}
+          onChange={handleFormat}
+          aria-label="text formatting"
+        >
+          <ToggleButton value="bold" aria-label="bold">
+            <FormatBoldIcon />
+          </ToggleButton>
+          <ToggleButton value="italic" aria-label="italic">
+            <FormatItalicIcon />
+          </ToggleButton>
+          <ToggleButton value="underlined" aria-label="underlined">
+            <FormatUnderlinedIcon />
+          </ToggleButton>
+          <ToggleButton value="color" aria-label="color" disabled>
+            <FormatColorFillIcon />
+            <ArrowDropDownIcon />
+          </ToggleButton>
+        </StyledToggleButtonGroup>
+      </Paper>
+    </div>
+  );
+}
+```
+
+<br/><br/>
+
+
+# 라이브러리
+
+## ----- Slider -----
+
+[material 사이트 바로가기](https://material-ui.com/components/tables/#basic-table "material 사이트 바로가기") <br/>
+
+### Install
+
+<!-- Install Code -->
+
+``` js
+$ npm install react-slick --save
+$ yarn add react-slick
+```
+yarn 또는 npm을 통한 설치를 완료 한 후에는 프로젝트에 CSS를 포함시켜야합니다.
+
+### CSS 포함
+
+<!-- Install Code -->
+
+``` js
+$ npm install slick-carousel --save
+```
+
+### CSS 적용
+
+<!-- import Code -->
+
+``` js
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+```
+or add cdn link in your html
+
+<!-- import Code -->
+
+``` html
+<link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+```
+<br/>
+
+### App.js 파일에 CDN 적용하기
+
+<!-- Example Code -->
+
+``` js
+import Helmet from 'react-helmet';
+
+<Helmet
+  htmlAttributes={{ lang: 'ko' }}
+  meta={[{ charset: 'UTF-8' }]}
+  link={[{
+    rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css',
+  }, {
+    rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css',
+  }]}
+/>
+```
+위 처럼 App.js 파일에 CDN 을 Helmet 태그에 넣습니다. 
+
+<br/>
+
+## 사용법 참고
+
+### javascript
+
+<!-- Example Code -->
+
+``` js
+$('.multiple-items').slick({
+  infinite: true, //양방향 무한 모션
+  speed:300, // 슬라이드 스피드
+  autoplay: true, //자동플레이 유무( false시 자동플레이 안됨 )
+  autoplaySpeed:4000, // 자동플레이 스피드
+  slidesToShow: 3, //한 화면에 보여줄 아이템수
+  slidesToScroll: 3 // 한번에 슬라이드 시킬 아이템 개수
+  arrows: false, //좌우 화살 버튼 노출 여부 ( false 시 안보임 )
+});
+```
+
+<br/>
+
+### html
+
+<!-- Example Code -->
+
+``` js
+<div class="multiple-items">
+  <div>item1</div>
+  <div>item2</div>
+  <div>item3</div>
+......중략......
+<div>
+```
+
+<br/>
+
+### 단순 FadeInOut 으로만 사용시
+
+<!-- Example Code -->
+
+``` js
+$('.multiple-items').slick({
+  dots: true, // 하단 paging버튼 노출 여부
+  infinite: true, // 양방향 무한 모션
+  speed: 500, // 모션 스피드
+  fade: true, //페이드모션 실행 여부
+  cssEase: 'linear' //css easing 모션 함수
+});
+```
+
+<br/>
+
+### 제공되는 페이징 버튼이 아니고 custom 버튼형식으로 대체 (배너버튼 등)
+
+<!-- Example Code -->
+
+``` js
+$('.multiple-items').slick({
+  speed:1000,
+  arrows: false,
+  dots:true,
+  dotsClass:'bn-controller', // 사용자 css class ( 버튼들의 부모 엘리먼트 클래스를 가르킨다 )
+  customPaging: function(slide, i) {
+    // console.log( slide.$slider[0] )
+    //아래 마크업처럼 적용할 버튼들의 마크업을 대입하면 된다.
+
+    // slick내부에서 슬라이드 개수 만큼 for문으로 생성 ( 슬라이드 개수 만큼 복제된다. )
+
+    return '<div class="slide-banner">' +
+      ' <div class="bn-item">' +
+      '<img src="이미지경로'+(i+1)+'.jpg" alt="">'+
+      '</div>' +
+      '</div>'
+  }
+});
+```
+
+<br/>
+
+## ----- moment  -----
+
+### Install
+
+<!-- Install Code -->
+
+``` js
+$ npm install moment --save
+$ yarn add moment
+```
+
+<br/>
+
+### 기본 날짜 예제
+
+<!-- Example Code -->
+
+```js
+var moment = require('moment');
+moment().format(); //2018-11-18T22:19:20+09:00
+moment().format("MM-DD-YYYY"); //11-18-2018
+moment().format("YYYY"); //2018
+```
+format함수로 자신이 원하는 날짜 및 시간 형식을 지정해서, 날짜나 시간을 출력할 수 있습니다.
+
+<br>
+
+### 현 시점으로부터 날짜 구하기
+
+
+<!-- Example Code -->
+
+```js
+var moment = require('moment');
+ 
+moment().add(7, 'd'); //지금부터 7일후의 날짜 구하기 2018-11-25T22:25:51.654
+moment().add(7, 'd').add(1, 'M'); //지금부터 1달 7일후의 날짜 구하기 2018-12-25T22:25:51.654
+moment().subtract(7, 'd'); //지금부터 7일전의 날짜 구하기 2018-11-11T22:25:51.654
+moment().subtract(2, 'w'); //지금부터 2주전의 날짜 구하기 2018-11-04T22:25:51.654
+```
+
+add와 subtract함수를 이용하여, 현 시점을 기준으로 간단하게 다음이나 이전시점의 날짜로 조작해서 파싱할 수 있습니다.
+
+<br>
+
+### 날짜 및 시간 차이 구하기
+
+
+<!-- Example Code -->
+
+```js
+var moment = require('moment');
+ 
+var date1 = moment([2018, 11, 18]);
+var date2 = moment([2018, 01, 01]);
+date1.diff(da, 'days'); // 2018년 1월 1일부터 2018년 11월 18일까지 일(day) 차이 -> 320
+
+```
+
+diff 함수를 이용하여, 특정 시점으로부터 특정 시점까지의 날짜 및 시간 차이를 구할 수 있습니다.
