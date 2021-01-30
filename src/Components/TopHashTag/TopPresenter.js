@@ -11,11 +11,8 @@ const TopPresenter = ({
     loading,
     dataRate,
     loadingRate,
-    dataRecent,
-    loadingRecent,
     sortDate,
     sortAction,
-    togglePage,
     handleSortDate,
     handleSortAction,
     handleTogglePage
