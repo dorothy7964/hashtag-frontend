@@ -40,14 +40,13 @@ const useStyles = makeStyles({
 });
 
 const TagPostMaterialTable = ({ 
-    fileame,
     hashTag,
     mapData,
     sortAction,
 }) => {
     const classes = useStyles();
     let listType = ["유저 ID", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
-    let listType_remain = ["유저 ID", "유지 시간/ 초", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
+    let listType_remain = ["유저 ID", "유지 시간", "누적 게시물", "평균 좋아요 수", "평균 댓글 수", "평균 포스팅 시간"];
 
     return (
         <TableContainer component={Paper}>
@@ -80,12 +79,14 @@ const TagPostMaterialTable = ({
                             </StyledTableCell>
                             {sortAction === "top_remain" && 
                             <StyledTableCell align="center">
-                                <TimeIapse createAt={data.remain} />
+                                <TimeIapse secTime={data.remain} hourTime={0} />
                             </StyledTableCell>}
                             <StyledTableCell align="center">{data.id_data.post_cnt}</StyledTableCell>
                             <StyledTableCell align="center">{data.id_data.average_like_cnt}</StyledTableCell>
                             <StyledTableCell align="center">{data.id_data.average_comment_cnt}</StyledTableCell>
-                            <StyledTableCell align="center">{`${data.id_data.average_post_hour} / h`}</StyledTableCell>
+                            <StyledTableCell align="center">
+                                <TimeIapse secTime={0} hourTime={data.id_data.average_post_hour} />
+                            </StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>

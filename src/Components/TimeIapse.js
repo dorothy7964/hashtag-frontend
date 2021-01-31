@@ -1,51 +1,69 @@
-import React from "react";
-import PropTypes from "prop-types";
-import moment from "moment";
-
-const TimeIapse = ({ createAt }) => {
+const TimeIapse = ({ secTime, hourTime }) => {
+    // sec Unit
     const sec = 60;
-    const mins = 60;
-    const hours = 24;
-    const days = 31;
-    const month =12;
+    const min = 60;
+    const hours = 360;
+    const days = 86400;
+
+    // hour Unit
+    const hourType = 24;
+    let hourDiv = hourTime/24;
+    const daysType = hourDiv/24;
+    const daysdiv = hourTime%24;
+
     let msg = "";
+    let num = 0;
+    let stringNum =""
 
-    const today = moment().format("YYYY-MM-DDTHH:mm:ssZ");
-    const time = moment(createAt).format("YYYY-MM-DDTHH:mm:ssZ");
+    let numDiv = 0;
+    let stringNumDiv = "0";
+
     
-    const diffTime = {
-        year: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "year"),
-        month: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "month"),
-        day: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "day"),
-        hour: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "hour"),
-        minute: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "minute"),
-        second: moment(today, "YYYY-MM-DDTHH:mm:ssZ").diff(time, "second")
-    }
+    if (hourTime === 0) {
+        if (secTime === 0){
+            return "-";
 
-   if(time === "0000-00-00 00:00:00"){
-        msg = "";
-   }else {
-        if(diffTime.second < sec){
+        } else if(days -1 < secTime ){
+            num = Math.floor(secTime/days)
+            stringNum = String(num)
+            msg = stringNum + "일";
+            return msg;
+
+        } else if(hours -1 < secTime < days){
+            num = Math.floor(secTime/hours)
+            stringNum = String(num)
+            msg = stringNum + "시간";
+            return msg;
+            
+        } else if(min - 1 < secTime < hours){
+            num = Math.floor(secTime/min)
+            stringNum = String(num)
+            msg = stringNum + "분";
+            return msg;
+
+        } else if (secTime < sec){
             msg = "방금";
-        }else if(diffTime.minute < mins){
-            msg = Math.floor(diffTime.minute) + "분 전";
-        }else if(diffTime.hour < hours){
-            msg=Math.floor(diffTime.hour) + "시간 전";
-        }else if(diffTime.day < days){
-            msg=Math.floor(diffTime.day) + "일 전";
-        }else if(diffTime.month < month){
-            msg=Math.floor(diffTime.month) + "달 전";
-        }else {
-            msg=Math.floor(diffTime.year) + "년 전";
+            return msg;
+
         }
-        return msg;
-   }
+    } else {
+        if (hourTime < hourType ){
+            stringNum = String(hourTime)
+            msg = stringNum + "시간";
+            return msg;
 
-    return <span>{msg}</span>;
-};
-
-TimeIapse.propTypes = {
-    createAt: PropTypes.string.isRequired
+        } else if (hourDiv){
+            num = Math.floor(hourDiv)
+            numDiv = Math.floor(daysdiv)
+            stringNum = String(num)
+            stringNumDiv = String(numDiv)
+            numDiv === 0
+                ?   msg = stringNum + "일 "
+                :   msg = stringNum + "일 " + stringNumDiv + "시간";
+            
+            return msg;
+        }
+    }
 };
 
 export default TimeIapse;
