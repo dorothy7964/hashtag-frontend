@@ -1,5 +1,4 @@
 import React from "react";
-import Loader from "../Loader"
 import MainMaterialTable from "../MainTable/MainMaterialTable";
 
 const TopPresenter = ({ 
@@ -8,7 +7,9 @@ const TopPresenter = ({
 }) => {
     if (loading === true){
         return (
-            <Loader />
+            <React.Fragment>
+                <div>로딩중</div>
+            </React.Fragment>
         );
     } else if (!loading && data && data.trendList){
         const { trendList: { recent_list } } = data;

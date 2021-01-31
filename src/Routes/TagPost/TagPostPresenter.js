@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Prev } from "../../Components/Icons";
-import Loader from "../../Components/Loader"
 import TagPostButton from "../../Components/TagPostButton"
 import RelatedHashTag from "../../Components/RelatedHashTag"
 import TagPostSortType from "../../Components/TagPostTable/TagPostSortType"
 import slack_Icon from "../../Icons/slack.png";
+
 
 const LinkButton = styled(Link)`
     display: flex;
@@ -65,7 +65,9 @@ const TagPostPresenter = ({
  }) => {
     if (loading === true){
         return (
-            <Loader />
+            <React.Fragment>
+                <div>로딩중</div>
+            </React.Fragment>
         );
     } else if (!loading && data && data.selectHashTag){
         const { selectHashTag: {
