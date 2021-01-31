@@ -4,9 +4,9 @@ import SquarePost from "../SquarePost";
 
 const Posts = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 293px);
-    grid-template-rows: 293px;
-    grid-auto-rows: 293px;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: 300px;
+    grid-auto-rows: 300px;
     grid-gap: 28px;;
 `;
 

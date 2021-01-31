@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Loader from "../Loader"
 import SelectSort from "../SelectSort";
 import MainSortType from "../MainTable/MainSortType";
 
@@ -15,13 +16,10 @@ const TopPresenter = ({
     sortAction,
     handleSortDate,
     handleSortAction,
-    handleTogglePage
 }) => {
     if (loading === true || loadingRate === true){
         return (
-            <React.Fragment>
-                <div>로딩중</div>
-            </React.Fragment>
+            <Loader />
         );
     } else if (
         !loading && data && data.gap &&

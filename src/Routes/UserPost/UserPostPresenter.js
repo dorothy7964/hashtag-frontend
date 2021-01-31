@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "../../Components/Loader"
 import UserInfoBox from "../../Components/UserInfoBox"
 
 const UserPostPresenter = ({ 
@@ -10,9 +11,7 @@ const UserPostPresenter = ({
  }) => {
     if (loading === true){
         return (
-            <React.Fragment>
-                <div>로딩중</div>
-            </React.Fragment>
+            <Loader />
         );
     } else if (!loading && data && data.selectHashTag){
         const { selectHashTag: {
