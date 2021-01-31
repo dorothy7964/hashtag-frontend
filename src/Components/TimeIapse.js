@@ -7,9 +7,8 @@ const TimeIapse = ({ secTime, hourTime }) => {
 
     // hour Unit
     const hourType = 24;
-    let hourDiv = hourTime/24;
-    const daysType = hourDiv/24;
-    const daysdiv = hourTime%24;
+    let hourDiv = hourTime / 24;
+    const daysdiv = hourTime % 24;
 
     let msg = "";
     let num = 0;
