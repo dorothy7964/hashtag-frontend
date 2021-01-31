@@ -57,7 +57,6 @@ const Main = () => {
                         indicatorColor="primary"
                         textColor="primary"
                         centered
-                        label
                     >
                         <Tab label="인기 해시태그" />
                         <Tab label="최근 해시태그" />

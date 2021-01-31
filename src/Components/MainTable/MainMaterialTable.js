@@ -102,7 +102,7 @@ const MainMaterialTable = ({ mapData, fileName }) => {
                                     </Link>   
                                 </StyledTableCell>
                                 <StyledTableCell align="center">
-                                    <Timestamp>{ moment(`${data.add_date}`).format("YYYY.MM.DD HH:MM") }</Timestamp>
+                                    <Timestamp>{ moment(`${data.add_date}`).format("YYYY.MM.DD") }</Timestamp>
                                 </StyledTableCell>
                                 <StyledTableCell align="center">{data.post_cnt}</StyledTableCell>
                                 <StyledTableCell align="center">{data.check_start_time}</StyledTableCell>

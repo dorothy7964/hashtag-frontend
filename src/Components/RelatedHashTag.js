@@ -69,15 +69,16 @@ const RelatedHashTag = ({
                         <SliderContainer>
                             <Text>#</Text>
                             <Text>{data.hashtag}&nbsp;</Text>
-                            <Text>{data.post_cnt} </Text>
+                            <Text>{`(${data.post_cnt})`}</Text>
                         </SliderContainer>
                     </React.Fragment>
                 ))}
                 {top_autocomplete.map(data => (
                     <React.Fragment key={data.hashtag}> 
                         <SliderContainer> 
+                            <Text>#</Text>
                             <Text>{data.hashtag}&nbsp;</Text>
-                            <Text>{data.post_cnt} </Text>
+                            <Text>{`(${data.post_cnt})`}</Text>
                         </SliderContainer>
                     </React.Fragment>
                 ))}

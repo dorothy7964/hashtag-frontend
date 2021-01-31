@@ -1,4 +1,5 @@
 import Grid from '@material-ui/core/Grid';
+import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import RestoreIcon from '@material-ui/icons/Restore';
 import ToggleButton from '@material-ui/lab/ToggleButton';
@@ -11,6 +12,12 @@ const useStyles = makeStyles({
         marginBottom: 10
     }
 });
+
+// styled-components
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`;
 
 export default function SelectSort({ handleSortDate }) {
     const classes = useStyles();
@@ -29,27 +36,29 @@ export default function SelectSort({ handleSortDate }) {
         }
     };
     
-    return (
-        <Grid item>
-            <ToggleButtonGroup size="small" value={alignment} exclusive onChange={handleChange}>
-                <ToggleButton value="left">
-                    <RestoreIcon fontSize="small" />
-                    1일 간
-                </ToggleButton>
-                <ToggleButton value="center">
-                    <RestoreIcon fontSize="small" />
-                    7일 간
-                </ToggleButton>
-                <ToggleButton value="right">
-                    <RestoreIcon fontSize="small" />
-                    30일 간
+    return ( 
+        <Wrapper>
+            <Grid item className={classes.root}>
+                <ToggleButtonGroup size="small" value={alignment} exclusive onChange={handleChange}>
+                    <ToggleButton value="left">
+                        <RestoreIcon fontSize="small" />
+                        1일 간
                     </ToggleButton>
-                <ToggleButton value="justify">
-                    <RestoreIcon fontSize="small" />
-                    60일 간
-                </ToggleButton>
-            </ToggleButtonGroup>
-        </Grid>
+                    <ToggleButton value="center">
+                        <RestoreIcon fontSize="small" />
+                        7일 간
+                    </ToggleButton>
+                    <ToggleButton value="right">
+                        <RestoreIcon fontSize="small" />
+                        30일 간
+                        </ToggleButton>
+                    <ToggleButton value="justify">
+                        <RestoreIcon fontSize="small" />
+                        60일 간
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </Grid>
+        </Wrapper>
     );
 }
 

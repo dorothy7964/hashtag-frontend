@@ -72,7 +72,7 @@ const TagPostMaterialTable = ({
                 </TableHead>
                 <TableBody>
                     {mapData.map(data => (
-                        <StyledTableRow key={data.hashtag}>
+                        <StyledTableRow key={data.url}>
                             <StyledTableCell  align="center" component="th" scope="row">
                                 <Link to={`/userPost/${hashTag}/${sortAction}/${data.url}`}>
                                     {data.id_data.username}

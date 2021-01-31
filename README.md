@@ -1,6 +1,6 @@
 # 해시태그
 
-[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/>
+[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/><br/>
 
 # Install
 

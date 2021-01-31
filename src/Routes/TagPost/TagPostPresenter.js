@@ -47,13 +47,7 @@ const PostNum = styled.div`
 
 const ButtonContainer = styled.div`
     display: flex;
-    flex-direction: row;
-`;
-
-const ButtonBox = styled.div`
-    &:first-child {
-        margin-right: 10px;
-    }
+    flex-direction: row-reverse;
 `;
 
 const TableContainer = styled.div`
@@ -82,9 +76,9 @@ const TagPostPresenter = ({
         
        return (
             <React.Fragment>
-                    <LinkButton to={`/`}>
-                        <Prev />
-                    </LinkButton>
+                <LinkButton to={`/`}>
+                    <Prev />
+                </LinkButton>
                 <Wrapper>
                     <HeaderContainer>
                         <Header>
@@ -99,12 +93,10 @@ const TagPostPresenter = ({
                         data={data.selectHashTag}
                     />
                     <ButtonContainer>
-                        <ButtonBox>
-                            <TagPostButton 
-                                handleSortAction={handleSortAction}
-                                handleTogglePage={handleTogglePage}
-                            />
-                        </ButtonBox>
+                        <TagPostButton 
+                            handleSortAction={handleSortAction}
+                            handleTogglePage={handleTogglePage}
+                        />
                     </ButtonContainer>
                     <TableContainer>
                         {togglePage 

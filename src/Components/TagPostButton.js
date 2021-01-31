@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from "styled-components";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import RestoreIcon from '@material-ui/icons/Restore';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -23,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1, 0.5),
     },
 }));
+
+// styled-components
+const Wrapper = styled.div`
+`;
 
 const StyledToggleButtonGroup = withStyles((theme) => ({
     grouped: {
@@ -76,7 +81,7 @@ export default function TagPostButton({
     };
     
     return (
-        <React.Fragment>
+        <Wrapper>
             <Paper elevation={0} className={classes.paper}>
                 <StyledToggleButtonGroup
                     size="small"
@@ -118,6 +123,6 @@ export default function TagPostButton({
                     </ToggleButton>
                 </StyledToggleButtonGroup>
             </Paper>
-        </React.Fragment>
+        </Wrapper>
     );
 }
