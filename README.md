@@ -1,6 +1,7 @@
 # 해시태그
 
-[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/><br/>
+[backend Github 바로가기](https://github.com/dorothy7964/hashtag-backend "backend Github 바로가기") <br/>
+[파일 구조 보기](https://www.notion.so/wam6577/16c1b4b9e86c4f04a2a1d9bf6aff43da "파일 구조 보기") <br/><br/>
 
 # Install
 
