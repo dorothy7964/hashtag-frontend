@@ -81,9 +81,9 @@ const TagPostMaterialTable = ({
                             <StyledTableCell align="center">
                                 <TimeIapse secTime={data.remain} hourTime={0} />
                             </StyledTableCell>}
-                            <StyledTableCell align="center">{data.id_data.post_cnt}</StyledTableCell>
-                            <StyledTableCell align="center">{data.id_data.average_like_cnt}</StyledTableCell>
-                            <StyledTableCell align="center">{data.id_data.average_comment_cnt}</StyledTableCell>
+                            <StyledTableCell align="center">{data.id_data.post_cnt.toLocaleString()}</StyledTableCell>
+                            <StyledTableCell align="center">{data.id_data.average_like_cnt.toLocaleString()}</StyledTableCell>
+                            <StyledTableCell align="center">{data.id_data.average_comment_cnt.toLocaleString()}</StyledTableCell>
                             <StyledTableCell align="center">
                                 <TimeIapse secTime={0} hourTime={data.id_data.average_post_hour} />
                             </StyledTableCell>

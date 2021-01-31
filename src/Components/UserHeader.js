@@ -2,14 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Avatar from "./Avatar";
 import FatText from "./FatText";
+import TimeIapse from "./TimeIapse";
 
 const Header = styled.header`
     display: flex;
     align-items: center;
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     justify-content: center;
+    background-color: #eee;
+    padding: 30px;
 `;
 
 const HeaderColumn = styled.div`
@@ -53,19 +56,19 @@ const CountBox= styled.div`
     }
 `;
 
+const CountTitle= styled.div`
+    font-size: 25px;
+    margin-bottom: 10px;
+`;
+
 const FullName = styled(FatText)`
     font-size: 16px;
 `;
 
-const Text = styled.div`
-    font-size: 27px;
-`;
-
-
 const NumBox = styled.div`
     align-items: center;
     span {
-        font-size: 35px;
+        font-size: 32px;
     }
 `;
 
@@ -91,32 +94,36 @@ const UserHeader = ({
             </UserNameRow>
             <Counts>
                 <Count>
-                    <FatText text={String(post_cnt)} /> 게시물
+                    게시물 <FatText text={post_cnt.toLocaleString()} />
                 </Count>
                 <Count>
-                    <FatText text={String(followerCnt)} /> 팔로워
+                    팔로워 <FatText text={followerCnt.toLocaleString()} />
                 </Count>
                 <Count>
-                    <FatText text={String(followCnt)} /> 팔로우
+                    팔로우 <FatText text={followCnt.toLocaleString()} />
                 </Count>
             </Counts>
             <CountContainer>
                 <CountBox>
-                    <Text>평균 좋아요 수</Text>
+                    <CountTitle>평균 좋아요 수</CountTitle>
                     <NumBox>
-                        <FatText text={String(likeCnt)} />
+                        <FatText text={likeCnt.toLocaleString()} />
                     </NumBox>
                 </CountBox>
                 <CountBox>
-                    <Text>평균 댓글 수</Text>
+                    <CountTitle>평균 댓글 수</CountTitle>
                     <NumBox>
-                        <FatText text={String(commentCnt)} />
+                        <FatText text={commentCnt.toLocaleString()} />
                     </NumBox>
                 </CountBox>
                 <CountBox>
-                    <Text>평균 포스팅 시간</Text>
+                    <CountTitle>평균 포스팅 시간</CountTitle>
                     <NumBox>
-                        <FatText text={String(`${postHour}/h`)} />
+                        <FatText 
+                            text={
+                                <TimeIapse secTime={0} hourTime={postHour} />
+                            } 
+                        />
                     </NumBox>
                 </CountBox>
             </CountContainer>

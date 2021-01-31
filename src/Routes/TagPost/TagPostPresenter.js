@@ -86,7 +86,7 @@ const TagPostPresenter = ({
                         </Header>
                         <Header>
                             <Title>{info.hashtag}</Title>
-                            <PostNum>{`게시물 ${info.post_cnt}`}</PostNum>
+                            <PostNum>{`게시물 ${info.post_cnt.toLocaleString()}`}</PostNum>
                         </Header>
                     </HeaderContainer>
                     <RelatedHashTag 

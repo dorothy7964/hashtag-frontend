@@ -71,9 +71,9 @@ const MainMaterialTable = ({ mapData, fileName }) => {
                                         {`# ${data.hashtag}`}
                                     </Link>    
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{data.post_cnt}</StyledTableCell>
-                                <StyledTableCell align="center">{data.post_gap}</StyledTableCell>
-                                <StyledTableCell align="center">{data.post_rate}</StyledTableCell>
+                                <StyledTableCell align="center">{data.post_cnt.toLocaleString()}</StyledTableCell>
+                                <StyledTableCell align="center">{data.post_gap.toLocaleString()}</StyledTableCell>
+                                <StyledTableCell align="center">{data.post_rate.toLocaleString()}</StyledTableCell>
                             </StyledTableRow>
                         ))}
                     </TableBody>
@@ -104,7 +104,7 @@ const MainMaterialTable = ({ mapData, fileName }) => {
                                 <StyledTableCell align="center">
                                     <Timestamp>{ moment(`${data.add_date}`).format("YYYY.MM.DD") }</Timestamp>
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{data.post_cnt}</StyledTableCell>
+                                <StyledTableCell align="center">{data.post_cnt.toLocaleString()}</StyledTableCell>
                                 <StyledTableCell align="center">{data.check_start_time}</StyledTableCell>
                             </StyledTableRow>
                         ))}

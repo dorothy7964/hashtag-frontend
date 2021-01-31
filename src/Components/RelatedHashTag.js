@@ -8,13 +8,13 @@ const Wrapper = styled.div`
 `;
 
 const Slider = styled(Slick)`
+    width: 100%;
     padding-top: 30px;
     padding-bottom: 20px;
     border-top: 2px solid #eee;
     border-bottom: 2px solid #eee;
     margin-top: 15px;
     margin-bottom: 50px;
-    margin-left: 30px;
     align-items: center;
     button {
         margin-top: 48px;

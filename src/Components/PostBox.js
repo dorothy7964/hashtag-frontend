@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import moment from "moment";
 import Avatar from "./Avatar";
 import FatText from "./FatText";
 
@@ -58,59 +57,25 @@ const Button = styled.span`
     cursor: pointer;
 `;
 
-const Buttons = styled.div`
-    ${Button} {
-        &:first-child {
-            margin-right: 10px;
-        }
-    }
-    margin-bottom: 10px;
-`;
-
 const DetailButton = styled(Button)`
     display: block;
     margin-top: 10px;
     color: ${props => props.theme.darkGreyColor};
 `;
 
-const Caption = styled.div`
-    margin: 10px 0px;
-`;
-
-const Comments = styled.ul`
-    word-wrap: break-word;
-    margin-top: 10px;
-    line-height: 17px;
-    height: 52px
-    overflow: hidden;
-`;
-
-const Comment = styled.li`
-    margin-bottom: 7px;
+const Content = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+    margin-left: 0;
     span {
-        margin-right: 5px;
-    }
+        &:first-child {
+            margin-right: 10px;
+        } 
+    }   
 `;
 
-const TimeForm = styled.div`
-    display: inline-block;
-    font-weight: 400;
-    opacity: 0.5;
-    font-size: 12px;
-    padding-left: 5px;
-`;
-
-const Timestamp = styled.span`
-    font-weight: 400;
-    text-transform: uppercase;
-    opacity: 0.5;
-    display: block;
-    font-size: 12px;
-    margin: 10px 0px;
-    padding-bottom: 10px;
-    border-bottom: ${props => props.theme.lightGreyColor} 1px solid;
-`;
-
+const Text = styled.div``;
 
 const PostBox = ({
     post,
@@ -127,7 +92,6 @@ const PostBox = ({
             <File 
                 src="https://cdn.pixabay.com/photo/2018/03/31/06/31/dog-3277416_1280.jpg"
             />
-            
         </Files>
         <Meta>
             <FatText text={post.like_cnt === 1 ? "1 like" : `${post.like_cnt} likes`} />
@@ -136,10 +100,10 @@ const PostBox = ({
                     {post.comment_cnt > 0 ? `댓글 ${post.comment_cnt}개 모두 보기` : ""}
                 </Box>
             </DetailButton>
-            <Caption>
-                <FatText text={post.userName} />
-            </Caption>
-            <Timestamp>{ moment(post.post_time).format("YYYY.MM.DD HH:MM") }</Timestamp>
+            <Content>
+                <FatText text={userId} />
+                <Text>글이 들어갑니다.</Text>
+            </Content>
         </Meta>
     </Wrapper>
 );

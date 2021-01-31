@@ -6,7 +6,7 @@ const Text = styled.span`
 `;
 
 const FatText = ({ text }) => (
-    <Text>&nbsp;</Text>
+    <Text>{text}</Text>
 )
 
 export default FatText;
