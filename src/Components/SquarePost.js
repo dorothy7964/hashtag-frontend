@@ -18,6 +18,10 @@ const Overlay = styled.div`
 `;
 
 const Container = styled(Link)`
+    width: 330px;
+    height: 330px;
+    margin-bottom: 20px;
+
     position: relative;
     user-select: none;
     background-image: url(${props => props.bg});
@@ -61,7 +65,8 @@ const SquarePost = ({
     moviesCount,
  }) => {
     return (
-        <Container to={`/userPost/${hashTag}/${sortAction}/${url}`} bg={file} >
+        <Container 
+            to={`/userPost/${hashTag}/${sortAction}/${url}`} bg={file}>
             {filesCount.length === 1 ? "" : (
                 <PhotoIcon>
                     <Photos />

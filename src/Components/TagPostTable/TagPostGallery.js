@@ -2,12 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import SquarePost from "../SquarePost";
 
-const Posts = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
-    grid-template-rows: 300px;
-    grid-auto-rows: 300px;
-    grid-gap: 28px;;
+const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 `;
 
 const TagPostGallery = ({
@@ -15,7 +13,7 @@ const TagPostGallery = ({
     mapData,
     sortAction,
 }) =>  (                                                                                                                  
-    <Posts>
+    <Container>
         {mapData.map(post => (
             <SquarePost 
                 key={post.url}
@@ -24,12 +22,12 @@ const TagPostGallery = ({
                 url={post.url}
                 likeCount={post.like_cnt}
                 commentCount={post.comment_cnt}
-                file={"https://cdn.pixabay.com/photo/2021/01/02/23/55/dog-5883275__340.jpg"}
+                file={"https://cdn.pixabay.com/photo/2015/02/18/10/48/social-media-640543__340.png"}
                 filesCount={post.pic_cnt}
                 moviesCount={post.mov_cnt}
             />
         ))}
-    </Posts>
+    </Container>
 );
 
 export default TagPostGallery;
